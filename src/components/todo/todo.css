@@ -1,10 +1,99 @@
-/* CSS for Todo component */
-
 .todo {
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  margin: 8px 0;
-  padding: 16px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #DAF7A6  ;
+  border-radius: 20px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+  width: 50%; 
+  margin: 0 auto; 
+  padding: 30px;
+  background-image: url('To_Do_List.jpg'); 
+  
+}
+
+.todo h1 {
+  color: black;
+  margin-bottom: 20px; 
+  font-size: 70px;
+  text-decoration: underline;
+}
+
+.todo input[type="text"] {
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 3px solid #ccc;
+  margin-bottom: 20px; 
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+.todo .add-button {
+  padding: 8px 50px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  background-color: #36454F;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+  align-self: flex-end; 
+}
+
+.todo ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  width: 100%; 
+  padding: 20px; 
+  box-sizing: border-box; 
+  background-color: whitesmoke;
+}
+
+.todo li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.todo li span {
+  margin-right: 10px;
+}
+
+.todo li.completed {
+  color: #888;
+  text-decoration: line-through;
+}
+
+.todo li.priority-1 {
+  color: red;
+}
+
+.todo li.priority-2 {
+  color: orange;
+}
+
+.todo li.priority-3 {
+  color: green;
+}
+
+.todo .delete-button {
+  margin-left: 10px;
+  padding: 6px 8px;
+  font-size: 18px;
+  border-radius: 4px;
+  border: none;
+  background-color: transparent;
+  color: red;
+  cursor: pointer;
+}
+
+.todo .delete-button:hover {
+  color: darkred;
 }

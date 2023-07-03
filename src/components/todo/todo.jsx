@@ -1,50 +1,50 @@
-//Write React code to create a commponent to be used in the App component that acts as a todo list and supports all functionalities.
-
 import React, { Component } from 'react';
 import './todo.css';
 
 class Todo extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            todos: [],
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: [],
+      newTodo: ''
+    };
+  }
 
-            newTodo: ''
-        }
-    }
+  handleChange = (event) => {
+    this.setState({ newTodo: event.target.value });
+  };
 
-    handleChange = (event) => {
-        this.setState({ newTodo: event.target.value });
-    }
-    
-    addTodo = () => {
-        this.setState({ todos: [...this.state.todos, this.state.newTodo] });
-    }
-    
-    deleteTodo = (index) => {
-        this.state.todos.splice(index, 1);
-        this.setState({ todos: this.state.todos });
-    }
+  addTodo = () => {
+    this.setState({ todos: [...this.state.todos, this.state.newTodo] });
+  };
 
-    render() {
-        return (
-            <div className="todo">
-                <h1>Todo List</h1>
-                <input type="text" onChange={this.handleChange} />
-                <button onClick={this.addTodo}>Add</button>
-                <ul>
-                    {this.state.todos.map((todo, index) => (
-                        <li key={index}>
-                            {todo}
-                            <button onClick={() => this.deleteTodo()}>Delete</button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        );
-    }
+  deleteTodo = (index) => {
+    const updatedTodos = [...this.state.todos];
+    updatedTodos.splice(index, 1);
+    this.setState({ todos: updatedTodos });
+  };
 
+  render() {
+    return (
+      <div className="todo">
+        <h1>My Todo List</h1>
+        <input type="text" onChange={this.handleChange} placeholder='Write your task here...'/>
+        <button className="add-button" onClick={this.addTodo}>
+          Add
+        </button>
+        <ul>
+          {this.state.todos.map((todo, index) => (
+            <li key={index}>
+              {todo}
+              <button className="delete-button" onClick={() => this.deleteTodo(index)}>
+                X
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
 }
 
 export default Todo;
-
