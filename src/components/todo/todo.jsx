@@ -27,11 +27,9 @@ class Todo extends Component {
   render() {
     return (
       <div className="todo">
-        <h1>My Todo List</h1>
-        <input type="text" onChange={this.handleChange} placeholder='Write your task here...'/>
-        <button className="add-button" onClick={this.addTodo}>
-          Add
-        </button>
+        <h1 id='head'>Todo List</h1>
+        <input type="text" onChange={this.handleChange} className='input' placeholder='Write your task here...'/>
+        <button onClick={this.addTodo}><span class="text">Add Task</span><span>Added!</span></button>
         <ul>
           {this.state.todos.map((todo, index) => (
             <li key={index}>
